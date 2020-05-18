@@ -5,7 +5,7 @@ export default {
     };
 
     Vue.prototype.$error = function(html) {
-      M.toast({html: `[Ошибка]: ${html}`, classes: 'red darken-3'})
+      M.toast({html: `[Ошибка]: ${html}`, classes: 'red-text darken-3'})
     }
   }
 }
