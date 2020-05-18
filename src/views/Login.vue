@@ -28,8 +28,10 @@
           id="password"
           type="password"
           v-model.trim="password"
-          :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }"
+          :class="{invalid: ($v.password.$dirty && !$v.password.required)}"
         >
+        <!--          :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }"-->
+
         <label for="password">Пароль</label>
         <small
           class="helper-text invalid"
@@ -37,12 +39,12 @@
         >
           Введите пароль
         </small>
-        <small
-          class="helper-text invalid"
-          v-else-if="$v.password.$dirty && !$v.password.minLength"
-        >
-          Пароль не может быть короче {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}} символов.
-        </small>
+<!--        <small-->
+<!--          class="helper-text invalid"-->
+<!--          v-else-if="$v.password.$dirty && !$v.password.minLength"-->
+<!--        >-->
+<!--          Пароль не может быть короче {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}} символов.-->
+<!--        </small>-->
       </div>
     </div>
     <div class="card-action">
@@ -65,7 +67,10 @@
 </template>
 
 <script>
-  import {email, required, minLength} from 'vuelidate/lib/validators';
+
+  import {email, required} from 'vuelidate/lib/validators';
+  import messages from '@/utils/messages';
+
 
   export default {
     name: "Login",
@@ -75,19 +80,33 @@
     }),
     validations: {
       email: {email, required},
-      password: {required, minLength: minLength(6)},
+      password: {required},
+    },
+    mounted() {
+      if(messages[this.$route.query.message]) {
+        this.$message(messages[this.$route.query.message])
+      }
     },
     methods: {
-      submitHandler() {
+      async submitHandler() {
+
         if (this.$v.$invalid) {
-          this.$v.$touch()
+          this.$v.$touch();
           return
         }
+
         const formData = {
           email: this.email,
           password: this.password,
         }
-        this.$router.push('/')
+
+        try {
+
+          await this.$store.dispatch('login', formData)
+          this.$router.push('/')
+
+        } catch (e) {}
+
       }
     }
   }
