@@ -8,7 +8,7 @@
           v-for="cur of currencies"
           :key="cur"
           class="currency-line">
-          <span>{{getCurrency(cur)}}</span>
+          <span>{{getCurrency(cur) | currency(cur)}}</span>
         </p>
       </div>
     </div>
@@ -30,8 +30,10 @@
       methods: {
         getCurrency(currency) {
           // return Math.floor(this.base * this.rates[currency])
-          let cur = this.base * this.rates[currency]
-          return cur.toFixed(2)
+          return this.base * this.rates[currency]
+
+          // let cur = this.base * this.rates[currency]
+          // return cur.toFixed(2)
         }
       }
     }

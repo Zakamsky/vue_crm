@@ -5,8 +5,9 @@
 
     <sidebar v-model="isOpen" />
 
-    <main class="app-content" :class="{full: !isOpen}">
-      <div class="app-page">
+    <main class="app-content" :class="{full: !isOpen}" >
+      <Loader v-if="loading" class="mt-200"/>
+      <div v-else class="app-page" >
         <router-view/>
       </div>
     </main>
@@ -27,15 +28,22 @@
   export default {
     name: "main-layout",
     data: () => ({
-      isOpen: true
+      isOpen: true,
+      loading: true
     }),
     async mounted() {
       if (!Object.keys(this.$store.getters.info).length) {
         await this.$store.dispatch('fetchInfo')
       }
+      this.loading = false
     },
     components: {
       Navbar, Sidebar
     }
   }
 </script>
+<style scoped>
+  .mt-200{
+    margin-top: 110px;
+  }
+</style>

@@ -13,12 +13,14 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/firestore'
+import currencyFilter from "./filters/currency.filter";
 
 Vue.config.productionTip = false;
 
 Vue.use(messagePlugin);
 Vue.use(Vuelidate);
 Vue.filter('date', dateFilter);
+Vue.filter('currency', currencyFilter);
 Vue.component('Loader', Loader);
 
 
