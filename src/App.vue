@@ -14,7 +14,7 @@ export default {
   computed: {
     layout() {
       // console.log(this.$route.meta)
-      return (this.$route.meta.layout || 'main') + '-layout';
+      return (this.$route.meta.layout || 'auth') + '-layout';
     }
   },
   components: {
@@ -22,7 +22,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
     @import '~materialize-css/dist/css/materialize.min.css';
     @import 'assets/index.css';
