@@ -12,12 +12,12 @@
           type="text"
           :class="{ invalid: ($v.name.$dirty && !$v.name.required) }"
         >
-        <label for="description">Имя</label>
+        <label for="description">{{'name' | localize}}</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
         >
-          Введите имя.
+          {{'enter-name' | localize}}
         </small>
       </div>
 
@@ -31,7 +31,7 @@
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        Обновить
+        {{'update' | localize}}
         <i class="material-icons right">send</i>
       </button>
     </form>
