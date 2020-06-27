@@ -8,5 +8,16 @@
   "Menu_History": "History",
   "Menu_Planning": "Planning",
   "Menu_NewRecord": "New Record",
-  "Menu_Categories": "Categories"
+  "Menu_Categories": "Categories",
+  "Categories": "Categories",
+  "emptyCategory": "You don’t have any categories yet, try creating several",
+  "Create": "Create",
+  "Title": "Title",
+  "enterTitle": "Enter category name",
+  "Limit": "Limit",
+  "MinimumValue": "Minimum value",
+  "Edit": "Edit",
+  "Select-category-change": "Select a category to change",
+  "enterNewTitle": "Enter category new name",
+  "end": "end"
 }

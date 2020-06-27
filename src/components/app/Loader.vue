@@ -1,7 +1,6 @@
 <template>
     <div class="app-loader">
       <div class="preloader-wrapper active">
-<!--        <div class="spinner-layer" :class="color">-->
         <div class="spinner-layer spinner-green-only" >
           <div class="circle-clipper left">
             <div class="circle"></div>
@@ -18,12 +17,6 @@
 <script>
     export default {
       name: "Loader",
-      // computed: {
-      //     color() {
-      //       const colors = ['spinner-green-only', 'spinner-orange-only', 'spinner-teal-only']
-      //       return colors[Math.floor(Math.random()*3)]
-      //     }
-      // }
     }
 </script>
 

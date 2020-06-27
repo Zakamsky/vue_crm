@@ -8,5 +8,18 @@
   "Menu_History": "История",
   "Menu_Planning": "Планирование",
   "Menu_NewRecord": "Новая запись",
-  "Menu_Categories": "Категории"
+  "Menu_Categories": "Категории",
+  "Categories": "Категории",
+  "emptyCategory": "У вас пока нет ни одной категории, попробуйте создать несколько",
+  "Create": "Создать",
+  "Title": "Название",
+  "enterTitle": "Введите название категории",
+  "Limit": "Лимит",
+  "MinimumValue": "Минимальное значение",
+  "Edit": "Редактировать",
+  "Select-category-change": "Выберите изменяемую категорию",
+  "enterNewTitle": "Введите новое название категории",
+  "b": "b",
+  "end": "end"
+
 }

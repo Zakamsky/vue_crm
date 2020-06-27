@@ -1,7 +1,7 @@
 <template>
   <div class="app-main-layout">
 
-    <navbar @burger="isOpen = !isOpen" :key="locale"/>
+    <navbar @burger="isOpen = !isOpen"/>
 
     <sidebar v-model="isOpen" :key="locale"/>
 
