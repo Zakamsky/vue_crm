@@ -1,18 +1,22 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>
+        {{'History_Title' | localize}}
+      </h3>
     </div>
 
     <div class="history-chart">
-      <canvas ref="canvas"></canvas>
+      <canvas ref="canvas" v-if="records.length"></canvas>
     </div>
 
     <Loader v-if="loading" />
 
     <p class="center" v-else-if="!records.length">
-      Заисей пока нет.
-      <router-link to="/record">Добавьте свою первую запись</router-link>
+      {{'NoRecords' | localize}}
+      <router-link to="/record">
+        {{'AddFirst' | localize}}
+      </router-link>
     </p>
 
     <section v-else >
@@ -46,6 +50,7 @@
 <script>
   import paginationMixin from '@/mixins/pagination.mixin';
   import HistoryTable from "@/components/HistoryTable";
+  import localizeFilter from "../filters/localize.filter";
   import { Pie } from 'vue-chartjs';
 
     export default {
@@ -77,7 +82,9 @@
               ...record,
               categoryName: categories.find(c => c.id === record.categoryId).title,
               typeClass: record.type === 'income' ? 'green' : 'red',
-              typeText: record.type === 'income' ? 'Доход' : 'Расход',
+              typeText: record.type === 'income'
+                ? localizeFilter('Income')
+                : localizeFilter('Outcome'),
             }
           }), this.pageSize)
 

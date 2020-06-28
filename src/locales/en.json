@@ -5,7 +5,7 @@
   "Create": "Create",
   "Bill": "Bill",
   "Name": "Name",
-  "Exit": "Exit",
+  "Exit": "Logout",
   "Edit": "Edit",
   "Menu_Bill": "Bill",
   "Detail_Title": "Detail",
@@ -27,6 +27,8 @@
   "Category": "Category",
   "Categories": "Categories",
   "NoCategories": "No categories",
+  "AddFirstCat": "Add first сategory",
+
   "Type": "Type",
   "Open": "Open",
   "OpenRecord": "Open record",

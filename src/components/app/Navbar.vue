@@ -31,7 +31,7 @@
             <li>
               <a href="#" class="black-text" @click.prevent="logout">
                 <i class="material-icons">assignment_return</i>
-                {{'Logout' | localize}}
+                {{'Exit' | localize}}
               </a>
             </li>
           </ul>

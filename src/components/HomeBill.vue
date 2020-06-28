@@ -2,7 +2,7 @@
   <div class="col s12 m6 l4">
     <div class="card light-blue bill-card">
       <div class="card-content white-text">
-        <span class="card-title">Счет в валюте</span>
+        <span class="card-title">{{'BillInCurrency' | localize}}</span>
 
         <p
           v-for="cur of currencies"
@@ -29,11 +29,7 @@
       },
       methods: {
         getCurrency(currency) {
-          // return Math.floor(this.base * this.rates[currency])
           return this.base * this.rates[currency]
-
-          // let cur = this.base * this.rates[currency]
-          // return cur.toFixed(2)
         }
       }
     }
