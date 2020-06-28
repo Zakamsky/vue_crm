@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-subtitle">
-      <h4>{{"Create" | localize}}</h4>
+      <h4>{{'Create'|localize}}</h4>
     </div>
 
     <form @submit.prevent="submitHandler">
@@ -18,7 +18,7 @@
           v-if="$v.title.$dirty && !$v.title.required"
           class="helper-text invalid"
         >
-          {{"enterTitle" | localize}}
+          {{'Message_CategoryTitle'|localize}}
         </span>
       </div>
 
@@ -34,7 +34,7 @@
           v-if="$v.limit.$dirty && !$v.limit.minValue"
           class="helper-text invalid"
         >
-          {{"MinimumValue" | localize}}: {{$v.limit.$params.minValue.min}}
+          {{"Message_MinLength" | localize}}: {{$v.limit.$params.minValue.min}}
         </span>
       </div>
 

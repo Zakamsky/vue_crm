@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>{{'profileTitle' | localize}}</h3>
+      <h3>{{'ProfileTitle' | localize}}</h3>
     </div>
 
     <form class="form" @submit.prevent="submitHandler">
@@ -12,12 +12,12 @@
           type="text"
           :class="{ invalid: ($v.name.$dirty && !$v.name.required) }"
         >
-        <label for="description">{{'name' | localize}}</label>
+        <label for="description">{{'Name' | localize}}</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
         >
-          {{'enter-name' | localize}}
+          {{'Message_EnterName'|localize}}
         </small>
       </div>
 
@@ -31,7 +31,7 @@
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        {{'update' | localize}}
+        {{'Update' | localize}}
         <i class="material-icons right">send</i>
       </button>
     </form>
@@ -44,6 +44,11 @@
 
   export default {
     name: "Profile",
+    metaInfo() {
+      return {
+        title: this.$title('ProfileTitle')
+      }
+    },
     data: () => ({
       name: '',
       isRuLocale: true

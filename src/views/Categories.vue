@@ -19,7 +19,7 @@
             :key="categories.length + updateCount"
             @updated="updateCategories"
           />
-          <p v-else class="orange-text text-darken-4">{{'emptyCategory' | localize}}</p>
+          <p v-else class="orange-text text-darken-4">{{'NoCategories' | localize}}</p>
 
         </div>
       </div>
@@ -33,6 +33,11 @@
 
   export default {
     name: "Categories",
+    metaInfo() {
+      return {
+        title: this.$title('Menu_Categories')
+      }
+    },
     data: () => ({
       categories: [],
       loading: true,

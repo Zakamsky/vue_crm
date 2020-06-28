@@ -4,7 +4,7 @@
     <div class="breadcrumb-wrap">
       <router-link to="/history" class="breadcrumb">{{'Menu_History' | localize}}</router-link>
       <a @click.prevent class="breadcrumb">
-        {{record.type === 'income' ? 'Доход' : 'Расход'}}
+        {{ record.type === 'income' ? 'Income' : 'Outcome' | localize }}
       </a>
     </div>
     <div class="row">
@@ -14,9 +14,9 @@
           'green': record.type === 'income'
         }">
           <div class="card-content white-text">
-            <p>Описание: {{record.description}}</p>
-            <p>Сумма: {{record.amount | currency('RUB')}}</p>
-            <p>Категория: {{record.categoryName}}</p>
+            <p>{{'Description'|localize}}: {{record.description}}</p>
+            <p>{{'Amount'|localize}}: {{record.amount | currency('RUB')}}</p>
+            <p>{{'Category'|localize}}: {{record.categoryName}}</p>
 
             <small>{{record.date | date('datetime')}}</small>
           </div>
@@ -25,14 +25,19 @@
     </div>
   </div>
   <p class="center" v-else>
-    запись с id: {{$route.params.id}} не найдена.
-    <router-link to="/history">К истории записей</router-link>
+    {{'RecordWith' | localize}} id: {{$route.params.id}} {{'NotFound' | localize}}.
+    <router-link to="/history">{{'BackToHistory' | localize}}</router-link>
   </p>
 </template>
 
 <script>
     export default {
       name: "Detail",
+      metaInfo() {
+        return {
+          title: this.$title('Detail_Title')
+        }
+      },
       data: () => ({
         record: null,
         loading: true,

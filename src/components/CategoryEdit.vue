@@ -16,7 +16,7 @@
             {{c.title}}
           </option>
         </select>
-        <label>{{'Select-category-change' | localize}}</label>
+        <label>{{'SelectCategory'|localize}}</label>
       </div>
 
       <div class="input-field">
@@ -31,7 +31,7 @@
           v-if="$v.title.$dirty && !$v.title.required"
           class="helper-text invalid"
         >
-          {{"enterNewTitle" | localize}}
+          {{"Message_CategoryTitle" | localize}}
         </span>
       </div>
 
@@ -47,12 +47,12 @@
           v-if="$v.limit.$dirty && !$v.limit.minValue"
           class="helper-text invalid"
         >
-          {{"MinimumValue" | localize}}: {{$v.limit.$params.minValue.min}}
+          {{"Message_MinLength" | localize}}: {{$v.limit.$params.minValue.min}}
         </span>
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        {{"update" | localize}}
+        {{"Update" | localize}}
         <i class="material-icons right">send</i>
       </button>
     </form>

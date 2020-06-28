@@ -90,6 +90,11 @@
 
   export default {
     name: "Register",
+    metaInfo() {
+      return {
+        title: this.$title('Register')
+      }
+    },
     data: () => ({
       email: '',
       password: '',
